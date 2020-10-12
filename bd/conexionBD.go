@@ -3,22 +3,23 @@ package bd
 import (
 	"context"
 	"log"
+	"os"
+
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"os"
 )
 
 // MongoCN es objeto de conexion a BD
 var MongoCN = ConectarBD()
 var userMongo = os.Getenv("USER_MONGO")
-var passwordMongo = os.Getenv("PASSWORD_MONGO") 
-var clusterMongo = os.Getenv("CLUSTER_MONGO") 
-var dbMongo = os.Getenv("DB_MONGO") 
+var passwordMongo = os.Getenv("PASSWORD_MONGO")
+var clusterMongo = os.Getenv("CLUSTER_MONGO")
+var dbMongo = os.Getenv("DB_MONGO")
 
-var uriConexion = "mongodb+srv://"+userMongo+":"+passwordMongo+"@"+clusterMongo+".bhind.mongodb.net/"+dbMongo+"?retryWrites=true&w=majority"
+var uriConexion = "mongodb+srv://" + userMongo + ":" + passwordMongo + "@" + clusterMongo + ".bhind.mongodb.net/" + dbMongo + "?retryWrites=true&w=majority"
 var clientOptions = options.Client().ApplyURI(uriConexion)
 
-// ConectarBD
+// ConectarBD ...
 func ConectarBD() *mongo.Client {
 	client, err := mongo.Connect(context.TODO(), clientOptions)
 	if err != nil {
@@ -37,7 +38,7 @@ func ConectarBD() *mongo.Client {
 }
 
 // ChequeoConnection es el ping a la BD
-func ChequeoConnection () int {
+func ChequeoConnection() int {
 	err := MongoCN.Ping(context.TODO(), nil)
 	if err != nil {
 		return 0

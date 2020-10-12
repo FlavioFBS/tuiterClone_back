@@ -1,4 +1,4 @@
-module github.co/FlavioFBS/tuiterClone_back
+module github.com/FlavioFBS/tuiterClone_back
 
 go 1.15
 
@@ -7,5 +7,5 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/rs/cors v1.7.0
 	go.mongodb.org/mongo-driver v1.4.2
-	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0 // indirect
+	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0
 )
