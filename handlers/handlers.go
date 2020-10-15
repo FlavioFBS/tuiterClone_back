@@ -15,7 +15,11 @@ import (
 func Manejadores() {
 	router := mux.NewRouter()
 
+	// rutas
 	router.HandleFunc("/registro", middlew.ChequeoBD(routers.Registro)).Methods("POST")
+	router.HandleFunc("/login", middlew.ChequeoBD(routers.Login)).Methods("POST")
+	router.HandleFunc("/verperfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.VerPerfil)).Methods("GET")
+	
 
 	// variable de entorno
 	PORT := os.Getenv("PORT_TUITER")

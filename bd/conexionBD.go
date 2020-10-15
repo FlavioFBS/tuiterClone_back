@@ -19,7 +19,7 @@ var dbMongo = os.Getenv("DB_MONGO")
 var uriConexion = "mongodb+srv://" + userMongo + ":" + passwordMongo + "@" + clusterMongo + ".bhind.mongodb.net/" + dbMongo + "?retryWrites=true&w=majority"
 var clientOptions = options.Client().ApplyURI(uriConexion)
 
-// ConectarBD
+// ConectarBD ...
 func ConectarBD() *mongo.Client {
 	client, err := mongo.Connect(context.TODO(), clientOptions)
 	if err != nil {
