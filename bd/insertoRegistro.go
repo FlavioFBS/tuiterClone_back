@@ -2,9 +2,9 @@ package bd
 
 import (
 	"context"
+	"os"
 	"time"
 
-	//"os"
 	"github.com/FlavioFBS/tuiterClone_back/models"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -15,9 +15,8 @@ func InsertoRegistro(u models.Usuario) (string, bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel() // cancelar el contexto al finalizar
 
-	// dbName := os.Getenv("DB_MONGO")
-	db := MongoCN.Database("TuiterClone") // selecionar db
-	col := db.Collection("usuarios")      // seleccionar coleccion
+	db := MongoCN.Database(os.Getenv("DB_MONGO")) // selecionar db
+	col := db.Collection("usuarios")              // seleccionar coleccion
 
 	u.Password, _ = EncriptarPassword(u.Password)
 
