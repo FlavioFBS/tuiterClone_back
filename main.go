@@ -1,9 +1,9 @@
 package main
 
 import (
-	"log"
-	"github.com/FlavioFBS/tuiterClone_back/handlers"
 	"github.com/FlavioFBS/tuiterClone_back/bd"
+	"github.com/FlavioFBS/tuiterClone_back/handlers"
+	"log"
 )
 
 func main() {

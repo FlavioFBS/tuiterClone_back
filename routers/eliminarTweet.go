@@ -10,7 +10,7 @@ import (
 func EliminarTweet(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
 	if len(ID) < 1 {
-		http.Error(w, "Debe enviar el parametro ID", http.StatusBadRequest)
+		http.Error(w, "Should to send ID parameter", http.StatusBadRequest)
 		return
 	}
 
