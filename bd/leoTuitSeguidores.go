@@ -2,10 +2,11 @@ package bd
 
 import (
 	"context"
-	"github.com/FlavioFBS/tuiterClone_back/models"
-	"go.mongodb.org/mongo-driver/bson"
 	"os"
 	"time"
+
+	"github.com/FlavioFBS/tuiterClone_back/models"
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 // LeoTuitSeguidores lee los tuits de mis seguidores
@@ -24,7 +25,7 @@ func LeoTuitSeguidores(ID string, pagina int) ([]models.DevuelvoTuitsSeguidores,
 	condiciones = append(condiciones, bson.M{
 		"$lookup": bson.M{
 			"from":         "tweet", // con qué tabla se quiere unir el campo relacion
-			"localField":   "usuariorelcionid",
+			"localField":   "usuariorelacionid",
 			"foreignField": "userid", // el campo de la tabla tweet donde está el idusuario
 			"as":           "tweet",
 		}})
